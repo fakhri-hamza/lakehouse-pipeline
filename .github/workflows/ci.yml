@@ -12,7 +12,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: pip install duckdb pandas pyarrow pytest "pyspark==3.5.3"
+      - run: pip install duckdb pandas pyarrow pytest setuptools "pyspark==3.5.3"   # setuptools provides distutils, which PySpark 3.5 still imports on Python 3.12
       - name: tests (the DuckDB-vs-Spark parity test runs here)
         shell: bash
         run: |
