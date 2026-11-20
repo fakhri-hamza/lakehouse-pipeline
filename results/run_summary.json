@@ -1,0 +1,56 @@
+{
+ "files": [
+  "yellow_tripdata_2024-01.parquet",
+  "yellow_tripdata_2024-02.parquet",
+  "yellow_tripdata_2024-03.parquet"
+ ],
+ "rows_total": 9554778,
+ "run1_seconds": 9.17,
+ "run2_seconds": 6.12,
+ "run3_seconds": 0.19,
+ "run2_status": {
+  "yellow_tripdata_2024-01.parquet": "skipped (already processed)",
+  "yellow_tripdata_2024-02.parquet": "skipped (already processed)",
+  "yellow_tripdata_2024-03.parquet": "processed"
+ },
+ "rows_per_second_run1": 650962,
+ "per_month": {
+  "yellow_tripdata_2024-01.parquet": {
+   "rows": 2964624,
+   "silver_rows": 2839985,
+   "rejected": {
+    "amounts_non_negative": 34138,
+    "distance_in_range": 59622,
+    "dropoff_after_pickup": 870,
+    "duration_le_6h": 1772,
+    "known_zones": 28219,
+    "pickup_in_month": 18
+   }
+  },
+  "yellow_tripdata_2024-02.parquet": {
+   "rows": 3007526,
+   "silver_rows": 2874202,
+   "rejected": {
+    "amounts_non_negative": 37451,
+    "distance_in_range": 67492,
+    "dropoff_after_pickup": 803,
+    "duplicate": 1,
+    "duration_le_6h": 1736,
+    "known_zones": 25826,
+    "pickup_in_month": 15
+   }
+  },
+  "yellow_tripdata_2024-03.parquet": {
+   "rows": 3582628,
+   "silver_rows": 3407230,
+   "rejected": {
+    "amounts_non_negative": 54680,
+    "distance_in_range": 86298,
+    "dropoff_after_pickup": 1128,
+    "duration_le_6h": 1926,
+    "known_zones": 31343,
+    "pickup_in_month": 23
+   }
+  }
+ }
+}
