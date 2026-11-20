@@ -1,0 +1,14 @@
+[project]
+name = "lakehouse-pipeline"
+version = "0.1.0"
+description = "Medallion data pipeline on NYC taxi data: one SQL source, DuckDB and Spark, quality rules, incremental loads"
+requires-python = ">=3.10"
+dependencies = ["duckdb>=1.0", "pandas>=2.0", "pyarrow"]
+
+[project.optional-dependencies]
+spark = ["pyspark>=3.5"]
+dev = ["pytest"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
