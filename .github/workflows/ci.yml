@@ -13,4 +13,18 @@ jobs:
         with:
           python-version: "3.12"
       - run: pip install duckdb pandas pyarrow pytest "pyspark==3.5.3"
-      - run: pytest -q -rs   # the DuckDB-vs-Spark parity test runs here
+      - name: tests (the DuckDB-vs-Spark parity test runs here)
+        shell: bash
+        run: |
+          set +e
+          pytest -q -rs --tb=short -p no:cacheprovider 2>&1 | tee pytest.out
+          code=${PIPESTATUS[0]}
+          if [ "$code" -ne 0 ]; then
+            python - <<'PY'
+          import re
+          t = open("pytest.out", encoding="utf-8", errors="replace").read()
+          t = re.sub(r"\x1b\[[0-9;]*m", "", t)[-3500:]
+          print("::error title=pytest::" + t.replace("%", "%25").replace("\r", "%0D").replace("\n", "%0A"))
+          PY
+          fi
+          exit $code
